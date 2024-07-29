@@ -3,16 +3,16 @@ server:
   grpc_listen_port: 0
 
 positions:
-  filename: /tmp/postions.yaml
+  filename: /tmp/positions.yaml
 
 client:
   url: http://loki:3100/api/prom/push
 
 scrape_configs:
   - job_name: system
-  static_configs:
-  - target:
-    - localhost
-    labels:
-      job: syslog
-      __paath__: /var/log/syslog
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: syslog
+          __path__: /var/log/syslog
